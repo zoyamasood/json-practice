@@ -1,6 +1,6 @@
 # json-practice
 
-<a href="https://gitpod.io/#https://github.com/nmagee/json-practice" target="_new"><img src="images/open-with-gitpod.png" /></a>
+<a href="https://gitpod.io/#https://github.com/nmagee/json-practice" target="_new"><b>Open with Gitpod</b></a>
 
 Get practice working with JSON:
 
