@@ -1,5 +1,7 @@
 # json-practice
 
+![Open with Gitpod](images/open-with-gitpod.png)
+
 Get practice working with JSON:
 
 - [`jq`](jq)
