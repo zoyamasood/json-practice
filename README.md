@@ -7,6 +7,8 @@ Get practice working with JSON:
 - [`jq`](jq)
 - [Python3](python)
 - [data/](data)
+- [jsonlint](https://jsonlint.com/)
+- [jqplay](https://jqplay.org/#)
 
 An example for fetching JSON from a remote data source:
 
