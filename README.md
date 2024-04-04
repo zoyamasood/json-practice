@@ -10,11 +10,14 @@ Get practice working with JSON:
 - [jsonlint](https://jsonlint.com/)
 - [jqplay](https://jqplay.org/#)
 
-An example for fetching JSON from a remote data source:
+Some `curl` examples for fetching JSON from a remote data source:
 
 ```
 curl https://api.github.com/users/schacon/repos
+curl https://api.github.com/repos/nmagee/ds2002-course/branches
 ```
+
+In Python, either `requests` or `urllib3` can GET remote data.
 
 ## Compare with XML
 
