@@ -4,7 +4,7 @@ As you may already recognize, JSON is quite similar to dictionaries in Python.
 Since JSON is the "language" for machinized exchanges of data, it is important
 to be able to retrieve, parse, and generate JSON using Python.
 
-## Example 1 - Pull and Read JSON
+## Example 1 - Simple Pull and Parse JSON
 
 ```
 import requests
@@ -39,7 +39,7 @@ response.headers               response.next                  response.url
 Some important elements about the request:
 
 - `response.encoding` - `'utf-8'`
-- `response.headers` - HTTP response headers about the request/reply.
+- `response.headers.*` - HTTP response headers about the request/reply.
 - `response.status_code` - `200` is OK; other status codes indicate errors.
 - `response.request.*` - Request method, URL, headers, body, etc. about the original request.
 - `response.text` - Text version of the actual data response. Quote-wrapped.
@@ -56,4 +56,71 @@ container
 main
 ```
 
-## Example 2 - TBD Fabricate JSON
+## Example 2 - Pull and Parse JSON with Error Handling
+
+This includes a variety of possible errors: HTTP, ReadTimeout, Connection, and RequestException.
+Ideally any errors are logged to an external log file, not printed to the screen.
+
+```
+import requests
+
+url = "https://api.github.com/repos/nmagee/ds2002-course/branches"
+
+try: 
+  response = requests.get(url, timeout=1) 
+  response.raise_for_status() 
+except requests.exceptions.HTTPError as errh: 
+    print("HTTP Error") 
+    print(errh.args[0]) 
+except requests.exceptions.ReadTimeout as errrt: 
+    print("Time out: ", errrt) 
+except requests.exceptions.ConnectionError as conerr: 
+    print("Connection error: ", conerr) 
+except requests.exceptions.RequestException as errex: 
+    print("Exception request: ", errex) 
+finally:
+    response.close()
+
+# get out the name objects
+for r in response.json():
+  print(r['name'])
+```
+
+## Example 3 - Fabricate JSON from Pythonic Data Structures
+
+Take the Python dictionary below:
+
+```
+myvals = [{"repo_name":"json-practice", "repo_url":"https://github.com/nmagee/json-practice/"}, {"repo_name":"fastapi-demo", "repo_url":"https://github.com/nmagee/fastapi-demo/"}]
+```
+
+You can convert this to JSON using the `.dumps()` method of the `json` library:
+
+```
+import json
+
+myvals = [{"repo_name":"json-practice", "repo_url":"https://github.com/nmagee/json-practice/"}, {"repo_name":"fastapi-demo", "repo_url":"https://github.com/nmagee/fastapi-demo/"}]
+myjson = json.dumps(myvals)
+```
+
+The `myjson` variable now contains JSON encoded data.
+
+Such an object could also be created dynamically, appending key-value tuples into a list using `.extend()` and then converting that into a dictionary with `dict()`:
+
+```
+first = ('sape', 4139)
+second = ('guido', 4127)
+third = ('jack', 4098)
+
+# combine tuples into list. Can .append one by one or .extend all at once
+mylist = []
+mylist.extend((first, second, third))
+
+# convert to dict
+mydict = dict(mylist)
+mydict
+
+# convert to JSON
+myjson = json.dumps(mydict)
+myjson
+```
