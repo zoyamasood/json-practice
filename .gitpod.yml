@@ -1,3 +1,7 @@
 tasks:
   - name: Install jq
     before: sudo apt install -y jq
+
+additionalRepositories:
+    - url: https://github.com/nmagee/LOLAweb.git
+      checkoutLocation: lola
