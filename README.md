@@ -19,7 +19,7 @@ curl https://api.github.com/repos/nmagee/ds2002-course/branches
 
 In Python, either `requests` or `urllib3` can GET remote data.
 
-## Compare with XML
+## 1. Compare with XML
 
 ```
 {"menu": {
@@ -48,3 +48,12 @@ The same text expressed as XML:
 ```
 
 Drawn from https://json.org/example.html
+
+## 2. Work with `jq`
+
+Review the contents of [jq/README.md](jq/README.md) and practice using the CLI to parse JSON.
+
+## 3. Work with Python
+
+Review the contents of [python/README.md](python/README.md) and practice using Python to parse JSON.
+
