@@ -70,16 +70,16 @@ try:
   response = requests.get(url, timeout=1) 
   response.raise_for_status() 
 except requests.exceptions.HTTPError as errh: 
-    print("HTTP Error") 
-    print(errh.args[0]) 
+  print("HTTP Error") 
+  print(errh.args[0]) 
 except requests.exceptions.ReadTimeout as errrt: 
-    print("Time out: ", errrt) 
+  print("Time out: ", errrt) 
 except requests.exceptions.ConnectionError as conerr: 
-    print("Connection error: ", conerr) 
+  print("Connection error: ", conerr) 
 except requests.exceptions.RequestException as errex: 
-    print("Exception request: ", errex) 
+  print("Exception request: ", errex) 
 finally:
-    response.close()
+  response.close()
 
 # get out the name objects
 for r in response.json():
