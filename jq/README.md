@@ -1,5 +1,7 @@
 # Using `jq`
 
+To install `jq` see [this page](https://jqlang.github.io/jq/).
+
 There is a great resource for learning how to use `jq` effectively called [jqplay](https://jqplay.org/#)
 
 The basics for the CLI or a `bash` script are:
