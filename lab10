@@ -1,0 +1,31 @@
+#!/bin/env python
+
+import json
+
+Using try and except statements
+def throw_me_an_error():
+    val1 = 14
+    val2 = 0
+    try: 
+        print(val1 / val2)
+    except Exception as e: 
+        print("division error:", {e})
+
+throw_me_an_error()
+
+#Finally Block 
+# The finanlly block checks if the file is open and then closes the file regardless of what happens with the try and 
+# except statements (it will close the file even if an error occurs). Its job is to ensure the file is closed by the end
+# of the function. 
+
+#Imported Library 
+# Invalid JSON data
+data = '{"invalid_json_key": "value"}'
+
+try:
+  # Attempt to load the JSON data
+  json.loads(data)
+  print("json imported successfully")
+except json.JSONDecodeError as e:
+  # Print the JSON import error
+  print(f"JSON import error: {e}")
